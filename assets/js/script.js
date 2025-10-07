@@ -124,7 +124,7 @@ function renderPlanetData(planet, view = 'overview') {
   updatePlanetDescription(description);
 
   planetImage.alt = planet.name;
-  geologyImage.src = planet.images.geology;
+  geologyImage.src = BASE_PATH + planet.images.geology;
   geologyImage.alt = `${planet.name} geology`;
 
   planetTitle.textContent = planet.name;
