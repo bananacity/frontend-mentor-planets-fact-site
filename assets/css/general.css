@@ -54,14 +54,13 @@ a {
 /* Typography */
 @font-face {
   font-family: 'Antonio';
-  src: url('/assets/fonts/Antonio/Antonio-VariableFont_wght.ttf')
-    format('truetype');
+  src: url('../fonts/Antonio/Antonio-VariableFont_wght.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Spartan';
-  src: url('/assets/fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf')
+  src: url('../fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf')
     format('truetype');
   font-display: swap;
 }
