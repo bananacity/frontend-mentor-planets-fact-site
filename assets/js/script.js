@@ -253,7 +253,7 @@ function handleTabClick(e) {
   }
 
   const currentPath = window.location.pathname;
-  window.history.pushState({}, '', currentPath + hash);
+  window.history.pushState({}, '', BASE_PATH + currentPath + hash);
 
   renderPlanetData(currentPlanet, view);
 }
