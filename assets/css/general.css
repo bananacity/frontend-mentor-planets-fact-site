@@ -1,15 +1,15 @@
 :root {
   /* Colors */
-  --color-mercury: hsl(194, 48%, 49%);
-  --color-venus: hsl(33, 82%, 61%);
-  --color-earth: hsl(263, 67%, 51%);
-  --color-mars: hsl(10, 63%, 51%);
-  --color-jupiter: hsl(2, 68%, 53%);
-  --color-saturn: hsl(17, 73%, 46%);
-  --color-uranus: hsl(169, 73%, 44%);
-  --color-neptune: hsl(222, 87%, 56%);
+  --accent-mercury: hsl(194, 48%, 49%);
+  --accent-venus: hsl(33, 82%, 61%);
+  --accent-earth: hsl(263, 67%, 51%);
+  --accent-mars: hsl(10, 63%, 51%);
+  --accent-jupiter: hsl(2, 68%, 53%);
+  --accent-saturn: hsl(17, 73%, 46%);
+  --accent-uranus: hsl(169, 73%, 44%);
+  --accent-neptune: hsl(222, 87%, 56%);
 
-  --color-planet: var(--color-earth);
+  --accent-planet: var(--accent-earth);
 
   --color-white: hsl(0, 0%, 100%);
   --color-navy-900: hsl(240, 67%, 8%);
@@ -18,6 +18,30 @@
 
   --color-btn-hover: hsla(0, 0%, 85%, 0.2);
   --color-btn-border: hsla(0, 0%, 100%, 0.2);
+
+  /* Planet colors */
+  --color-mercury: #def4fc;
+  --color-venus: #f7cc7f;
+  --color-earth: #545bfe;
+  --color-mars: #ff6a45;
+  --color-jupiter: #ecad7a;
+  --color-saturn: #fccb6b;
+  --color-uranus: #65f0d5;
+  --color-neptune: #497efa;
+
+  --color-planet: var(--color-earth);
+
+  /* Planet sizes */
+  --size-mercury: 290px;
+  --size-venus: 400px;
+  --size-earth: 450px;
+  --size-mars: 336px;
+  --size-jupiter: 582px;
+  --size-saturn: 416px; /* size of planet not including ring around it */
+  --size-uranus: 458px;
+  --size-neptune: 450px;
+
+  --size-planet: var(--size-earth);
 
   /* Spacing */
   --spacing-25: 0.25rem;
@@ -110,4 +134,18 @@ body {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 25px;
+}
+
+/* Planets */
+.planet-page {
+  --size-planet: var(--size-earth);
+  --color-planet: var(--color-earth);
+}
+
+.planet-page .planet-texture {
+  background-image: url('../images/planets/earth/earth-texture-1.svg');
+}
+
+.planet-page .planet-internal-structure {
+  background-image: url('../images/planets/earth/earth-internals.svg');
 }

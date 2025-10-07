@@ -8,7 +8,8 @@ const sourceLink = document.querySelector('.source-link');
 const statValues = document.querySelectorAll('.stat-value');
 const tabs = document.querySelectorAll('.tab');
 
-const BASE_PATH = '/frontend-mentor-planets-fact-site/';
+// const BASE_PATH = '/frontend-mentor-planets-fact-site/';
+const BASE_PATH = '';
 
 let planets;
 let currentPlanet;
@@ -51,27 +52,6 @@ function renderNavigationLinks(planets) {
   }
 }
 
-async function loadSVG(filePath) {
-  filePath = BASE_PATH + filePath;
-
-  try {
-    const response = await fetch(filePath);
-    if (!response.ok) throw new Error(response.status);
-
-    const svgText = await response.text();
-    return svgText;
-  } catch (error) {
-    console.error(`Couldn't load planet SVG: `, error);
-    return '';
-  }
-}
-
-async function renderPlanetSVG(planetImagePath) {
-  const planetSVG = await loadSVG(planetImagePath);
-
-  planetImage.innerHTML = planetSVG;
-}
-
 function renderPlanetData(planet, view = 'overview') {
   if (!planet) return;
 
@@ -94,30 +74,30 @@ function renderPlanetData(planet, view = 'overview') {
 
   currentPlanet = planet;
 
-  const planetColor = `--color-${planet.name.toLowerCase()}`;
+  const planetColor = `--accent-${planet.name.toLowerCase()}`;
   const colorValue = getComputedStyle(
     document.documentElement
   ).getPropertyValue(planetColor);
-  document.documentElement.style.setProperty('--color-planet', colorValue);
+  document.documentElement.style.setProperty('--accent-planet', colorValue);
 
   let description;
   switch (view) {
     case 'structure':
       description = planet.structure.content;
       sourceLink.href = planet.structure.source;
-      renderPlanetSVG(planet.images.internal);
+      // renderPlanetSVG(planet.images.internal);
       geologyImage.classList.add('hidden');
       break;
     case 'geology':
       description = planet.geology.content;
       sourceLink.href = planet.geology.source;
-      renderPlanetSVG(planet.images.planet);
+      // renderPlanetSVG(planet.images.planet);
       geologyImage.classList.remove('hidden');
       break;
     default:
       description = planet.overview.content;
       sourceLink.href = planet.overview.source;
-      renderPlanetSVG(planet.images.planet);
+      // renderPlanetSVG(planet.images.planet);
       geologyImage.classList.add('hidden');
   }
 
