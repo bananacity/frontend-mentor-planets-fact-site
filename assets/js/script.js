@@ -224,7 +224,7 @@ function handleNavigation(e) {
 
   const href = link.getAttribute('href');
 
-  window.history.pushState({}, '', href);
+  window.history.pushState({}, '', BASE_PATH + href);
 
   const planetName = getPlanetFromURL();
   const planet = findPlanetByName(planetName);
@@ -253,7 +253,7 @@ function handleTabClick(e) {
   }
 
   const currentPath = window.location.pathname;
-  window.history.pushState({}, '', BASE_PATH + currentPath + hash);
+  window.history.pushState({}, '', currentPath + hash);
 
   renderPlanetData(currentPlanet, view);
 }
