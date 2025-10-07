@@ -224,7 +224,7 @@ function handleNavigation(e) {
 
   const href = link.getAttribute('href');
 
-  window.history.pushState({}, '', BASE_PATH.slice(-1) + href);
+  window.history.pushState({}, '', BASE_PATH.slice(0, -1) + href);
 
   const planetName = getPlanetFromURL();
   const planet = findPlanetByName(planetName);
