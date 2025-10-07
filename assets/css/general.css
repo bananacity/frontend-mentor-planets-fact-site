@@ -1,0 +1,114 @@
+:root {
+  /* Colors */
+  --color-mercury: hsl(194, 48%, 49%);
+  --color-venus: hsl(33, 82%, 61%);
+  --color-earth: hsl(263, 67%, 51%);
+  --color-mars: hsl(10, 63%, 51%);
+  --color-jupiter: hsl(2, 68%, 53%);
+  --color-saturn: hsl(17, 73%, 46%);
+  --color-uranus: hsl(169, 73%, 44%);
+  --color-neptune: hsl(222, 87%, 56%);
+
+  --color-planet: var(--color-earth);
+
+  --color-white: hsl(0, 0%, 100%);
+  --color-navy-900: hsl(240, 67%, 8%);
+  --color-navy-400: hsl(240, 17%, 26%);
+  --color-navy-300: hsl(240, 6%, 54%);
+
+  --color-btn-hover: hsla(0, 0%, 85%, 0.2);
+  --color-btn-border: hsla(0, 0%, 100%, 0.2);
+
+  /* Spacing */
+  --spacing-25: 0.25rem;
+  --spacing-50: 0.75rem;
+  --spacing-100: 1rem;
+  --spacing-200: 1.5rem;
+  --spacing-250: 1.75rem;
+  --spacing-275: 2rem;
+  --spacing-300: 2.5rem;
+  --spacing-400: 3rem;
+}
+
+/* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Typography */
+@font-face {
+  font-family: 'Antonio';
+  src: url('/assets/fonts/Antonio/Antonio-VariableFont_wght.ttf')
+    format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spartan';
+  src: url('/assets/fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf')
+    format('truetype');
+  font-display: swap;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+}
+
+.text-logo {
+  font-family: 'Antonio';
+  font-weight: 500;
+  font-size: 1.75rem;
+  letter-spacing: -1.05px;
+}
+
+.text-xl {
+  font-family: 'Antonio';
+  font-weight: 500;
+  font-size: 5rem;
+}
+
+.text-lg {
+  font-family: 'Antonio';
+  font-weight: 500;
+  font-size: 2.5rem;
+  letter-spacing: -1.5px;
+}
+
+.text-md {
+  font-family: 'Spartan';
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2.6px;
+  line-height: 25px;
+}
+
+.text-sm {
+  font-family: 'Spartan';
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+
+.text-body {
+  font-family: 'Spartan';
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 25px;
+}
