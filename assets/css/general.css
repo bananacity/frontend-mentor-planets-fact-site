@@ -138,14 +138,70 @@ body {
 
 /* Planets */
 .planet-page {
+  /* Default to Earth */
   --size-planet: var(--size-earth);
   --color-planet: var(--color-earth);
+  --planet-rotation-time: 15s;
+
+  --texture-1-url: url('../images/planets/earth/earth-texture-1.svg');
+  --planet-width-texture-1: 722px;
+
+  --texture-2-url: url('../images/planets/earth/earth-texture-2.svg');
+  --planet-width-texture-2: 507px;
+
+  --planet-internal-url: url('../images/planets/earth/earth-internals.svg');
 }
 
-.planet-page .planet-texture {
-  background-image: url('../images/planets/earth/earth-texture-1.svg');
+.planet-page .planet-texture-1 {
+  background-image: var(--texture-1-url);
+}
+
+.planet-page .planet-texture-2 {
+  background-image: var(--texture-2-url);
 }
 
 .planet-page .planet-internal-structure {
-  background-image: url('../images/planets/earth/earth-internals.svg');
+  background-image: var(--planet-internal-url);
+}
+
+.planet-page[data-planet='mercury'] {
+  --size-planet: var(--size-mercury);
+  --color-planet: var(--color-mercury);
+  --planet-rotation-time: 30s;
+
+  --texture-1-url: url('../images/planets/mercury/mercury-texture-1.svg');
+  --planet-width-texture-1: 267px;
+
+  --texture-2-url: none;
+  --planet-width-texture-2: none;
+
+  --planet-internal-url: url('../images/planets/mercury/mercury-internals.svg');
+}
+
+.planet-page[data-planet='venus'] {
+  --size-planet: var(--size-venus);
+  --color-planet: var(--color-venus);
+  --planet-rotation-time: 40s;
+
+  --texture-1-url: url('../images/planets/venus/venus-texture-1.svg');
+  --planet-width-texture-1: 520px;
+
+  --texture-2-url: url('../images/planets/venus/venus-texture-2.svg');
+  --planet-width-texture-2: 441px;
+
+  --planet-internal-url: url('../images/planets/venus/venus-internals.svg');
+}
+
+.planet-page[data-planet='mars'] {
+  --size-planet: var(--size-mars);
+  --color-planet: var(--color-mars);
+  --planet-rotation-time: 15s;
+
+  --texture-1-url: url('../images/planets/mars/mars-texture-1.svg');
+  --planet-width-texture-1: 393px;
+
+  --texture-2-url: url('../images/planets/mars/mars-texture-2.svg');
+  --planet-width-texture-2: 364px;
+
+  --planet-internal-url: url('../images/planets/mars/mars-internals.svg');
 }

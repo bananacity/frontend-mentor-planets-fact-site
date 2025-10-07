@@ -1,0 +1,10 @@
+<svg width="221" height="442" viewBox="0 0 221 442" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 442C122.055 442 221 343.055 221 221C221 98.9451 122.055 0 0 0V442Z" fill="#138B83"/>
+<mask id="mask0_0_6131" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="221" height="442">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 442C122.055 442 221 343.055 221 221C221 98.9451 122.055 0 0 0V442Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_0_6131)">
+<circle cx="1" cy="221" r="145" fill="#1BB9AE"/>
+<circle cx="-0.5" cy="221.5" r="32.5" fill="#06504C"/>
+</g>
+</svg>

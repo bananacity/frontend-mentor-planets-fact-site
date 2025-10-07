@@ -1,6 +1,10 @@
 const navList = document.querySelector('.nav-list');
+const planetPage = document.querySelector('.planet-page');
 const planetVisual = document.querySelector('.planet-visual');
 const planetImage = document.querySelector('.planet-image');
+const planetStructureImage = document.querySelector(
+  '.planet-internal-structure'
+);
 const geologyImage = document.querySelector('.geology-image');
 const planetTitle = document.querySelector('.planet-title');
 const planetDescription = document.querySelector('.planet-description');
@@ -80,31 +84,35 @@ function renderPlanetData(planet, view = 'overview') {
   ).getPropertyValue(planetColor);
   document.documentElement.style.setProperty('--accent-planet', colorValue);
 
+  planetPage.setAttribute('data-planet', planet.name.toLowerCase());
+
   let description;
   switch (view) {
     case 'structure':
       description = planet.structure.content;
       sourceLink.href = planet.structure.source;
-      // renderPlanetSVG(planet.images.internal);
+      planetStructureImage.classList.add('active');
       geologyImage.classList.add('hidden');
       break;
     case 'geology':
       description = planet.geology.content;
       sourceLink.href = planet.geology.source;
-      // renderPlanetSVG(planet.images.planet);
+      planetStructureImage.classList.remove('active');
       geologyImage.classList.remove('hidden');
       break;
     default:
       description = planet.overview.content;
       sourceLink.href = planet.overview.source;
-      // renderPlanetSVG(planet.images.planet);
+      planetStructureImage.classList.remove('active');
       geologyImage.classList.add('hidden');
   }
 
   updatePlanetDescription(description);
 
   planetImage.alt = planet.name;
-  geologyImage.src = BASE_PATH + planet.images.geology;
+  geologyImage.src =
+    BASE_PATH +
+    `assets/images/planets/${planet.name.toLowerCase()}/geology-${planet.name.toLowerCase()}.png`;
   geologyImage.alt = `${planet.name} geology`;
 
   planetTitle.textContent = planet.name;
