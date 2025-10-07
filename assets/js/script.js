@@ -8,6 +8,8 @@ const sourceLink = document.querySelector('.source-link');
 const statValues = document.querySelectorAll('.stat-value');
 const tabs = document.querySelectorAll('.tab');
 
+const BASE_PATH = '/frontend-mentor-planets-fact-site/';
+
 let planets;
 let currentPlanet;
 let currentView;
@@ -50,6 +52,8 @@ function renderNavigationLinks(planets) {
 }
 
 async function loadSVG(filePath) {
+  filePath = BASE_PATH + filePath;
+
   try {
     const response = await fetch(filePath);
     if (!response.ok) throw new Error(response.status);
@@ -197,7 +201,7 @@ function updateNavIndicator(activeItem) {
 function getPlanetFromURL() {
   const path = window.location.pathname;
 
-  const planetName = path.substring(1) || 'earth';
+  const planetName = path.split('/').pop() || 'earth';
 
   return planetName;
 }
