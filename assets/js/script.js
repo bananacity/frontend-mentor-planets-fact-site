@@ -294,5 +294,3 @@ async function init() {
 }
 
 init();
-
-// make the planets sizes always relative to each other. so in css set their starting sizes like width: 240px etc and then calculate the size so it can scale down as needed but retain it's relative size to other planets.
