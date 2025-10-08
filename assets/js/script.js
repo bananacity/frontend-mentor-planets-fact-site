@@ -13,8 +13,7 @@ const sourceLink = document.querySelector('.source-link');
 const statValues = document.querySelectorAll('.stat-value');
 const tabs = document.querySelectorAll('.tab');
 
-// const BASE_PATH = '/frontend-mentor-planets-fact-site/';
-const BASE_PATH = '';
+const BASE_PATH = '/frontend-mentor-planets-fact-site/';
 
 let planets;
 let currentPlanet;

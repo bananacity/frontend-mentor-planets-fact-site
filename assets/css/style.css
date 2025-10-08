@@ -289,7 +289,7 @@ body {
 }
 
 .saturn-ring-front {
-  background-image: url('/assets/images/planets/saturn/saturn-ring-front.svg');
+  background-image: url('assets/images/planets/saturn/saturn-ring-front.svg');
   background-repeat: no-repeat;
   width: 795px;
   height: 75px;
@@ -305,7 +305,7 @@ body {
 }
 
 .saturn-ring-back {
-  background-image: url('/assets/images/planets/saturn/saturn-ring-back.svg');
+  background-image: url('assets/images/planets/saturn/saturn-ring-back.svg');
   background-repeat: no-repeat;
   width: 795px;
   height: 75px;
