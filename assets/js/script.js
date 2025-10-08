@@ -73,7 +73,7 @@ function renderNavigationLinks(planets) {
                 </div>
 
                 <img
-                  src="/assets/images/icon-chevron.svg"
+                  src="./assets/images/icon-chevron.svg"
                   class="nav-mobile-chevron"
                   alt=""
                 />
