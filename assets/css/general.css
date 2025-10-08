@@ -37,11 +37,13 @@
   --size-earth: 450px;
   --size-mars: 336px;
   --size-jupiter: 582px;
-  --size-saturn: 416px; /* size of planet not including ring around it */
+  --size-saturn: 416px;
   --size-uranus: 458px;
   --size-neptune: 450px;
 
   --size-planet: var(--size-earth);
+
+  --planet-saturn-ring-height: 73px;
 
   /* Spacing */
   --spacing-25: 0.25rem;
@@ -52,6 +54,40 @@
   --spacing-275: 2rem;
   --spacing-300: 2.5rem;
   --spacing-400: 3rem;
+
+  /* Typography */
+  --ff-base: 'Spartan', sans-serif;
+
+  --text-logo-ff: 'Antonio';
+  --text-logo-weight: 500;
+  --text-logo-size: 1.75rem;
+  --text-logo-letter-spacing: -1.05px;
+
+  --text-xl-ff: 'Antonio';
+  --text-xl-weight: 500;
+  --text-xl-size: 5rem;
+
+  --text-lg-ff: 'Antonio';
+  --text-lg-weight: 500;
+  --text-lg-size: 2.5rem;
+  --text-lg-letter-spacing: -1.5px;
+
+  --text-md-ff: 'Spartan';
+  --text-md-weight: 700;
+  --text-md-size: 0.75rem;
+  --text-md-letter-spacing: 2.6px;
+  --text-md-line-height: 0px;
+
+  --text-sm-ff: 'Spartan';
+  --text-sm-weight: 700;
+  --text-sm-size: 0.6875rem;
+  --text-sm-letter-spacing: 1px;
+  --text-sm-line-height: 25px;
+
+  --text-body-ff: 'Spartan';
+  --text-body-weight: 400;
+  --text-body-size: 0.874rem;
+  --text-body-line-height: 25px;
 }
 
 /* Resets */
@@ -90,56 +126,77 @@ a {
 }
 
 body {
-  font-family: 'Spartan', sans-serif;
+  font-family: var(--ff-base);
 }
 
 .text-logo {
-  font-family: 'Antonio';
-  font-weight: 500;
-  font-size: 1.75rem;
-  letter-spacing: -1.05px;
+  font-family: var(--text-logo-ff);
+  font-weight: var(--text-logo-weight);
+  font-size: var(--text-logo-size);
+  letter-spacing: var(--text-logo-letter-spacing);
 }
 
 .text-xl {
-  font-family: 'Antonio';
-  font-weight: 500;
-  font-size: 5rem;
+  font-family: var(--text-xl-ff);
+  font-weight: var(--text-xl-weight);
+  font-size: var(--text-xl-size);
 }
 
 .text-lg {
-  font-family: 'Antonio';
-  font-weight: 500;
-  font-size: 2.5rem;
-  letter-spacing: -1.5px;
+  font-family: var(--text-lg-ff);
+  font-weight: var(--text-lg-weight);
+  font-size: var(--text-lg-size);
+  letter-spacing: var(--text-lg-letter-spacing);
 }
 
 .text-md {
-  font-family: 'Spartan';
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 2.6px;
-  line-height: 25px;
+  font-family: var(--text-md-ff);
+  font-weight: var(--text-md-weight);
+  font-size: var(--text-md-size);
+  letter-spacing: var(--text-md-letter-spacing);
+  line-height: var(--text-md-line-height);
 }
 
 .text-sm {
-  font-family: 'Spartan';
-  font-weight: 700;
-  font-size: 0.6875rem;
-  letter-spacing: 1px;
-  line-height: 25px;
+  font-family: var(--text-sm-ff);
+  font-weight: var(--text-sm-weight);
+  font-size: var(--text-sm-size);
+  letter-spacing: var(--text-sm-letter-spacing);
+  line-height: var(--text-sm-line-height);
 }
 
 .text-body {
-  font-family: 'Spartan';
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 25px;
+  font-family: var(--text-body-ff);
+  font-weight: var(--text-body-weight);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line-height);
+}
+
+/* Media queries */
+@media (max-width: 50rem) {
+  :root {
+    --text-xl-size: 3rem;
+
+    --text-lg-size: 1.5rem;
+    --text-lg-letter-spacing: -0.9px;
+
+    --text-md-size: 0.5625rem;
+    --text-md-letter-spacing: 1.93px;
+
+    --text-sm-size: 0.5rem;
+    --text-sm-letter-spacing: 0.73px;
+    --text-sm-line-height: 16px;
+
+    --text-body-size: 0.75rem;
+    --text-body-line-height: 22px;
+  }
 }
 
 /* Planets */
 .planet-page {
   /* Default to Earth */
   --size-planet: var(--size-earth);
+
   --color-planet: var(--color-earth);
   --planet-rotation-time: 15s;
 

@@ -294,3 +294,6 @@ async function init() {
 }
 
 init();
+
+// when page is resized recalculate the position of the navbar active pseudoelement  + scale down planet sizewith css scale property
+// on initial page load somethimes the pseudoelement is incorrectly positioned in the navbar so maybe wait a little bit before calculating it or recalculate if the size changes of the nav element/container?
