@@ -1,5 +1,7 @@
 const navList = document.querySelector('.nav-list');
-const navMenuBtn = document.querySelector('.hamburger');
+const navMobileList = document.querySelector('.nav-mobile-list');
+const header = document.querySelector('.header');
+const hamburgerBtn = document.querySelector('.hamburger');
 const planetPage = document.querySelector('.planet-page');
 const planetParallaxContainer = document.querySelector('.planet-container');
 const planetVisual = document.querySelector('.planet-visual');
@@ -45,6 +47,7 @@ async function getPlanets() {
 
 function renderNavigationLinks(planets) {
   navList.innerHTML = '';
+  navMobileList.innerHTML = '';
 
   const activeIndicator = document.createElement('span');
   activeIndicator.className = 'nav-indicator';
@@ -58,6 +61,26 @@ function renderNavigationLinks(planets) {
     }</a>`;
 
     navList.appendChild(planetLi);
+
+    // Mobile nav
+    planetLiMobile = document.createElement('li');
+    planetLiMobile.className = 'nav-mobile-item';
+    planetLiMobile.innerHTML = `<a href="/${planet.name.toLowerCase()}" class="nav-mobile-link" style="--planet-border-color: var(--color-${planet.name.toLowerCase()});">
+              <div class="nav-mobile-link-container">
+                <div class="nav-mobile-planet-wrapper">
+                  <span class="nav-mobile-circle" style="background-color: var(--color-${planet.name.toLowerCase()});"></span>
+                  <span class="nav-mobile-planet">${planet.name}</span>
+                </div>
+
+                <img
+                  src="/assets/images/icon-chevron.svg"
+                  class="nav-mobile-chevron"
+                  alt=""
+                />
+              </div>
+            </a>`;
+
+    navMobileList.appendChild(planetLiMobile);
   }
 
   setupNavIndicatorAutoUpdate();
@@ -170,14 +193,25 @@ function updateActiveTab(view) {
 
 function updateActiveNavItem(planetName) {
   const navItems = document.querySelectorAll('.nav-item');
+  const navMobileItems = document.querySelectorAll('.nav-mobile-item');
 
   navItems.forEach((item) => item.classList.remove('active'));
+  navMobileItems.forEach((item) => item.classList.remove('active'));
 
   const activeLink = Array.from(navItems).find(
     (link) => link.textContent.toLowerCase() === planetName.toLowerCase()
   );
-  if (activeLink) {
+
+  const activeMobileLink = Array.from(navMobileItems).find((item) => {
+    const planetSpan = item.querySelector('.nav-mobile-planet');
+    return (
+      planetSpan.textContent.trim().toLowerCase() === planetName.toLowerCase()
+    );
+  });
+
+  if (activeLink && activeMobileLink) {
     activeLink.classList.add('active');
+    activeMobileLink.classList.add('active');
     updateNavIndicator(activeLink);
   }
 }
@@ -228,7 +262,7 @@ function findPlanetByName(planetName) {
 }
 
 function handleNavigation(e) {
-  const link = e.target;
+  const link = e.target.closest('a');
 
   e.preventDefault();
 
@@ -239,6 +273,8 @@ function handleNavigation(e) {
   const planetName = getPlanetFromURL();
   const planet = findPlanetByName(planetName);
   renderPlanetData(planet);
+
+  header.classList.remove('open');
 }
 
 function handleTabClick(e) {
@@ -323,8 +359,8 @@ function updatePlanetTransform() {
   planetParallaxContainer.style.transform = `translateX(${parallaxX}px) translateY(${parallaxY}px) scale(${currentScale})`;
 }
 
-navMenuBtn.addEventListener('click', () => {
-  navMenuBtn.classList.toggle('active');
+hamburgerBtn.addEventListener('click', () => {
+  header.classList.toggle('open');
 });
 
 async function init() {
@@ -334,6 +370,7 @@ async function init() {
     renderNavigationLinks(planets);
 
     navList.addEventListener('click', handleNavigation);
+    navMobileList.addEventListener('click', handleNavigation);
     tabs.forEach((tab) => tab.addEventListener('click', handleTabClick));
 
     const planetName = getPlanetFromURL();

@@ -41,7 +41,7 @@ body {
   justify-content: space-between;
   gap: var(--spacing-100);
   align-items: center;
-  height: 5.375rem;
+  height: var(--header-height);
   max-width: 90rem;
   margin-inline: auto;
   padding-left: var(--spacing-275);
@@ -62,6 +62,167 @@ body {
   padding-inline: var(--spacing-100);
 }
 
+.nav-mobile {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: calc(var(--header-height) + 1px);
+  background-color: var(--color-navy-900);
+  z-index: 5;
+  padding-top: 2.75rem;
+  transition: all 0.6s;
+  pointer-events: none;
+}
+
+.header.open .nav-mobile {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-mobile-list {
+  width: 100%;
+  list-style: none;
+}
+
+.nav-mobile-item {
+  width: 100%;
+}
+
+.nav-mobile-link-container {
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+  display: flex;
+  width: 100%;
+}
+
+.nav-mobile-item:last-child .nav-mobile-link-container {
+  border: none;
+}
+
+/* START - Mobile menu animation */
+.nav-mobile-item {
+  opacity: 0;
+  transform: translateX(-100%);
+
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.header.open .nav-mobile-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav-mobile-item:nth-child(1) {
+  transition-delay: 0.35s;
+}
+.nav-mobile-item:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.nav-mobile-item:nth-child(3) {
+  transition-delay: 0.25s;
+}
+.nav-mobile-item:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.nav-mobile-item:nth-child(5) {
+  transition-delay: 0.15s;
+}
+.nav-mobile-item:nth-child(6) {
+  transition-delay: 0.1s;
+}
+.nav-mobile-item:nth-child(7) {
+  transition-delay: 0.05s;
+}
+.nav-mobile-item:nth-child(8) {
+  transition-delay: 0s;
+}
+
+.header.open .nav-mobile-item:nth-child(1) {
+  transition-delay: 0.15s;
+}
+.header.open .nav-mobile-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.header.open .nav-mobile-item:nth-child(3) {
+  transition-delay: 0.25s;
+}
+.header.open .nav-mobile-item:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.header.open .nav-mobile-item:nth-child(5) {
+  transition-delay: 0.35s;
+}
+.header.open .nav-mobile-item:nth-child(6) {
+  transition-delay: 0.4s;
+}
+.header.open .nav-mobile-item:nth-child(7) {
+  transition-delay: 0.45s;
+}
+.header.open .nav-mobile-item:nth-child(8) {
+  transition-delay: 0.5s;
+}
+/* END - Mobile menu animation */
+
+.nav-mobile-link {
+  display: flex;
+  width: 100%;
+  padding-left: calc(var(--spacing-200) - 0.25rem);
+  padding-right: var(--spacing-200);
+  border-left: 0.25rem solid transparent;
+  transition: all 0.3s;
+}
+
+.nav-mobile-item.active .nav-mobile-link {
+  border-color: var(--planet-border-color);
+}
+
+.nav-mobile-link:hover .nav-mobile-chevron {
+  margin-right: 1.5rem;
+  opacity: 1;
+}
+
+.nav-mobile-link-container {
+  padding-block: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-mobile-planet-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.nav-mobile-chevron {
+  margin-right: 0.5rem;
+  transition: all 0.3s;
+  opacity: 0.4;
+}
+
+.nav-mobile-circle {
+  width: 1.25rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--color-mercury);
+  transition: all 0.3s;
+}
+
+.nav-mobile-item.active .nav-mobile-circle,
+.nav-mobile-link:hover .nav-mobile-circle {
+  scale: 1.25;
+}
+
+.nav-mobile-planet {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 1.36px;
+  text-transform: uppercase;
+}
+
 .hamburger {
   background: none;
   height: 100%;
@@ -74,7 +235,7 @@ body {
   opacity: 0.75;
 }
 
-.hamburger.active {
+.header.open .hamburger {
   opacity: 0.5;
 }
 
@@ -88,13 +249,13 @@ body {
 }
 
 /* Animate to X */
-.hamburger.active rect:nth-child(1) {
+.header.open .hamburger rect:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
-.hamburger.active rect:nth-child(2) {
+.header.open .hamburger rect:nth-child(2) {
   opacity: 0;
 }
-.hamburger.active rect:nth-child(3) {
+.header.open .hamburger rect:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
 
@@ -518,11 +679,14 @@ body {
 
 /* Media queries */
 @media (max-width: 50rem) {
+  :root {
+    --header-height: 10rem;
+  }
+
   .container-header {
     padding-top: var(--spacing-275);
     padding-inline: 0;
     flex-direction: column;
-    height: 10rem;
   }
 
   .nav-indicator {
@@ -590,8 +754,11 @@ body {
 }
 
 @media (max-width: 38.75rem) {
+  :root {
+    --header-height: 4.3125rem;
+  }
+
   .container-header {
-    height: 4.3125rem;
     padding: 0;
     padding-left: var(--spacing-200);
     flex-direction: row;
