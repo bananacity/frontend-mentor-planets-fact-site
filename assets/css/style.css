@@ -76,11 +76,6 @@ body {
   pointer-events: none;
 }
 
-.header.open .nav-mobile {
-  opacity: 1;
-  pointer-events: all;
-}
-
 .nav-mobile-list {
   width: 100%;
   list-style: none;
@@ -766,6 +761,11 @@ body {
 
   .nav {
     display: none;
+  }
+
+  .header.open .nav-mobile {
+    opacity: 1;
+    pointer-events: all;
   }
 
   .hamburger {
