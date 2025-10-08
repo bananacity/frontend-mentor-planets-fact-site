@@ -1,4 +1,5 @@
 const navList = document.querySelector('.nav-list');
+const navMenuBtn = document.querySelector('.hamburger');
 const planetPage = document.querySelector('.planet-page');
 const planetParallaxContainer = document.querySelector('.planet-container');
 const planetVisual = document.querySelector('.planet-visual');
@@ -18,6 +19,10 @@ const BASE_PATH = '/frontend-mentor-planets-fact-site/';
 let planets;
 let currentPlanet;
 let currentView;
+
+let currentScale = 1;
+let parallaxX = 0;
+let parallaxY = 0;
 
 async function getPlanets() {
   const url = `./data.json`;
@@ -54,6 +59,8 @@ function renderNavigationLinks(planets) {
 
     navList.appendChild(planetLi);
   }
+
+  setupNavIndicatorAutoUpdate();
 }
 
 function renderPlanetData(planet, view = 'overview') {
@@ -186,6 +193,21 @@ function updateNavIndicator(activeItem) {
   indicator.style.transform = `translateX(${rect.left - navRect.left}px)`;
 }
 
+function setupNavIndicatorAutoUpdate() {
+  const update = () => {
+    const activeItem = document.querySelector('.nav-item.active');
+    updateNavIndicator(activeItem);
+  };
+
+  // recalculate on window resize
+  window.addEventListener('resize', update);
+
+  // recalculate when fonts load to prevent misalignment
+  if (document.fonts) {
+    document.fonts.ready.then(update);
+  }
+}
+
 function getPlanetFromURL() {
   const path = window.location.pathname;
 
@@ -271,11 +293,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('mousemove', parallax);
 function parallax(event) {
-  const x = (window.innerWidth / 2 - event.pageX) / 150;
-  const y = (window.innerHeight / 2 - event.pageY) / 150;
+  parallaxX = (window.innerWidth / 2 - event.pageX) / 150;
+  parallaxY = (window.innerHeight / 2 - event.pageY) / 150;
 
-  planetParallaxContainer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+  updatePlanetTransform();
 }
+
+function scalePlanetContainer() {
+  const minScale = 0.38;
+  const maxScale = 1;
+  const minWindowWidth = 320;
+  const maxWindowWidth = 1110;
+
+  const windowWidth = window.innerWidth;
+
+  currentScale =
+    ((windowWidth - minWindowWidth) / (maxWindowWidth - minWindowWidth)) *
+      (maxScale - minScale) +
+    minScale;
+
+  currentScale = Math.min(Math.max(currentScale, minScale), maxScale);
+
+  updatePlanetTransform();
+}
+
+window.addEventListener('resize', scalePlanetContainer);
+
+function updatePlanetTransform() {
+  planetParallaxContainer.style.transform = `translateX(${parallaxX}px) translateY(${parallaxY}px) scale(${currentScale})`;
+}
+
+navMenuBtn.addEventListener('click', () => {
+  navMenuBtn.classList.toggle('active');
+});
 
 async function init() {
   planets = await getPlanets();
@@ -290,10 +340,8 @@ async function init() {
     const view = getViewFromURL();
     const planet = findPlanetByName(planetName);
     renderPlanetData(planet, view);
+    scalePlanetContainer();
   }
 }
 
 init();
-
-// when page is resized recalculate the position of the navbar active pseudoelement  + scale down planet sizewith css scale property
-// on initial page load somethimes the pseudoelement is incorrectly positioned in the navbar so maybe wait a little bit before calculating it or recalculate if the size changes of the nav element/container?

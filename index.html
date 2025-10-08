@@ -24,14 +24,31 @@
           <ul class="nav-list text-sm"></ul>
         </nav>
 
-        <button class="nav-menu-btn">
-          <img
-            src="assets/images/icon-hamburger.svg"
-            alt=""
-            draggable="false"
-          />
+        <button class="hamburger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17">
+            <g fill="#FFF" fill-rule="evenodd">
+              <rect width="24" height="3" y="0" fill="#FFF" />
+              <rect width="24" height="3" y="7" fill="#FFF" />
+              <rect width="24" height="3" y="14" fill="#FFF" />
+            </g>
+          </svg>
         </button>
       </div>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="">
+              <div>
+                <span></span>
+                <span>Mercury</span>
+              </div>
+
+              <img src="/assets/images/icon-chevron.svg" alt="" />
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main class="planet-page">
@@ -112,22 +129,22 @@
       <section class="planet-stats">
         <dl class="stats-list">
           <div class="stats">
-            <dt class="stat-label text-sm">Rotation Time</dt>
+            <dt class="stat-label text-stat-label">Rotation Time</dt>
             <dd class="stat-value text-lg">0.99 Days</dd>
           </div>
 
           <div class="stats">
-            <dt class="stat-label text-sm">Revolution Time</dt>
+            <dt class="stat-label text-stat-label">Revolution Time</dt>
             <dd class="stat-value text-lg">365.26 Days</dd>
           </div>
 
           <div class="stats">
-            <dt class="stat-label text-sm">Radius</dt>
+            <dt class="stat-label text-stat-label">Radius</dt>
             <dd class="stat-value text-lg">6371 Km</dd>
           </div>
 
           <div class="stats">
-            <dt class="stat-label text-sm">Average Temp.</dt>
+            <dt class="stat-label text-stat-label">Average Temp.</dt>
             <dd class="stat-value text-lg">16°C</dd>
           </div>
         </dl>

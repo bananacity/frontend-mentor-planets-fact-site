@@ -84,6 +84,12 @@
   --text-sm-letter-spacing: 1px;
   --text-sm-line-height: 25px;
 
+  --text-stat-label-ff: 'Spartan';
+  --text-stat-label-weight: 700;
+  --text-stat-label-size: 0.6875rem;
+  --text-stat-label-letter-spacing: 1px;
+  --text-stat-label-line-height: 25px;
+
   --text-body-ff: 'Spartan';
   --text-body-weight: 400;
   --text-body-size: 0.874rem;
@@ -165,6 +171,14 @@ body {
   line-height: var(--text-sm-line-height);
 }
 
+.text-stat-label {
+  font-family: var(--text-stat-label-ff);
+  font-weight: var(--text-stat-label-weight);
+  font-size: var(--text-stat-label-size);
+  letter-spacing: var(--text-stat-label-letter-spacing);
+  line-height: var(--text-stat-label-line-height);
+}
+
 .text-body {
   font-family: var(--text-body-ff);
   font-weight: var(--text-body-weight);
@@ -181,11 +195,16 @@ body {
     --text-lg-letter-spacing: -0.9px;
 
     --text-md-size: 0.5625rem;
+    --text-md-weight: 600;
     --text-md-letter-spacing: 1.93px;
 
-    --text-sm-size: 0.5rem;
+    --text-sm-size: 0.6875rem;
     --text-sm-letter-spacing: 0.73px;
     --text-sm-line-height: 16px;
+
+    --text-stat-label-size: 0.5rem;
+    --text-stat-label-letter-spacing: 0.73px;
+    --text-stat-label-line-height: 16px;
 
     --text-body-size: 0.75rem;
     --text-body-line-height: 22px;
