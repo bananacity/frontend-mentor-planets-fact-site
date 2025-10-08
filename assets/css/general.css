@@ -149,6 +149,12 @@ body {
   --texture-2-url: url('../images/planets/earth/earth-texture-2.svg');
   --planet-width-texture-2: 507px;
 
+  --texture-3-url: none;
+  --planet-width-texture-3: none;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
   --planet-internal-url: url('../images/planets/earth/earth-internals.svg');
 }
 
@@ -158,6 +164,14 @@ body {
 
 .planet-page .planet-texture-2 {
   background-image: var(--texture-2-url);
+}
+
+.planet-page .planet-texture-3 {
+  background-image: var(--texture-3-url);
+}
+
+.planet-page .planet-texture-4 {
+  background-image: var(--texture-4-url);
 }
 
 .planet-page .planet-internal-structure {
@@ -175,6 +189,12 @@ body {
   --texture-2-url: none;
   --planet-width-texture-2: none;
 
+  --texture-3-url: none;
+  --planet-width-texture-3: none;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
   --planet-internal-url: url('../images/planets/mercury/mercury-internals.svg');
 }
 
@@ -188,6 +208,12 @@ body {
 
   --texture-2-url: url('../images/planets/venus/venus-texture-2.svg');
   --planet-width-texture-2: 441px;
+
+  --texture-3-url: none;
+  --planet-width-texture-3: none;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
 
   --planet-internal-url: url('../images/planets/venus/venus-internals.svg');
 }
@@ -203,5 +229,111 @@ body {
   --texture-2-url: url('../images/planets/mars/mars-texture-2.svg');
   --planet-width-texture-2: 364px;
 
+  --texture-3-url: none;
+  --planet-width-texture-3: none;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
   --planet-internal-url: url('../images/planets/mars/mars-internals.svg');
+}
+
+.planet-page[data-planet='jupiter'] {
+  --size-planet: var(--size-jupiter);
+  --color-planet: var(--color-jupiter);
+  --planet-rotation-time: 10s;
+
+  --texture-1-url: url('../images/planets/jupiter/jupiter-texture-1.svg');
+  --planet-width-texture-1: 873px;
+
+  --texture-2-url: url('../images/planets/jupiter/jupiter-texture-2.svg');
+  --planet-width-texture-2: 867px;
+
+  --texture-3-url: url('../images/planets/jupiter/jupiter-texture-3.svg');
+  --planet-width-texture-3: 876px;
+
+  --texture-4-url: url('../images/planets/jupiter/jupiter-texture-4.svg');
+  --planet-width-texture-4: 794px;
+
+  --planet-internal-url: url('../images/planets/jupiter/jupiter-internals.svg');
+}
+
+.planet-page[data-planet='neptune'] {
+  --size-planet: var(--size-neptune);
+  --color-planet: var(--color-neptune);
+  --planet-rotation-time: 12.5s;
+
+  --texture-1-url: url('../images/planets/neptune/neptune-texture-1.svg');
+  --planet-width-texture-1: 869px;
+
+  --texture-2-url: url('../images/planets/neptune/neptune-texture-2.svg');
+  --planet-width-texture-2: 869px;
+
+  --texture-3-url: url('../images/planets/neptune/neptune-texture-3.svg');
+  --planet-width-texture-3: 478px;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
+  --planet-internal-url: url('../images/planets/neptune/neptune-internals.svg');
+}
+
+.planet-page[data-planet='uranus'] {
+  --size-planet: var(--size-uranus);
+  --color-planet: var(--color-uranus);
+  --planet-rotation-time: 13s;
+
+  --texture-1-url: url('../images/planets/uranus/uranus-texture-1.svg');
+  --planet-width-texture-1: 870px;
+
+  --texture-2-url: url('../images/planets/uranus/uranus-texture-2.svg');
+  --planet-width-texture-2: 866px;
+
+  --texture-3-url: url('../images/planets/uranus/uranus-texture-3.svg');
+  --planet-width-texture-3: 871px;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
+  --planet-internal-url: url('../images/planets/uranus/uranus-internals.svg');
+}
+
+.planet-page[data-planet='uranus'] .planet-textures {
+  transform: rotate(90deg);
+}
+
+.planet-page[data-planet='uranus'] .planet-texture-1,
+.planet-page[data-planet='uranus'] .planet-texture-2,
+.planet-page[data-planet='uranus'] .planet-texture-3,
+.planet-page[data-planet='uranus'] .planet-texture-4 {
+  animation-direction: reverse;
+}
+
+.planet-page[data-planet='saturn'] {
+  --size-planet: var(--size-saturn);
+  --color-planet: var(--color-saturn);
+  --planet-rotation-time: 9s;
+
+  --texture-1-url: url('../images/planets/saturn/saturn-texture-1.svg');
+  --planet-width-texture-1: 871px;
+
+  --texture-2-url: none;
+  --planet-width-texture-2: none;
+
+  --texture-3-url: none;
+  --planet-width-texture-3: none;
+
+  --texture-4-url: none;
+  --planet-width-texture-4: none;
+
+  --planet-internal-url: url('../images/planets/saturn/saturn-internals.svg');
+}
+
+.planet-page[data-planet='saturn'] .planet-textures {
+  transform: rotate(-145deg) translate(-30%, -30%);
+}
+
+.planet-page[data-planet='saturn'] .saturn-ring-front,
+.planet-page[data-planet='saturn'] .saturn-ring-back {
+  opacity: 1;
 }

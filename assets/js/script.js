@@ -1,5 +1,6 @@
 const navList = document.querySelector('.nav-list');
 const planetPage = document.querySelector('.planet-page');
+const planetParallaxContainer = document.querySelector('.planet-container');
 const planetVisual = document.querySelector('.planet-visual');
 const planetImage = document.querySelector('.planet-image');
 const planetStructureImage = document.querySelector(
@@ -269,6 +270,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('mousemove', parallax);
+function parallax(event) {
+  const x = (window.innerWidth / 2 - event.pageX) / 150;
+  const y = (window.innerHeight / 2 - event.pageY) / 150;
+
+  planetParallaxContainer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+}
+
 async function init() {
   planets = await getPlanets();
 
@@ -286,7 +295,5 @@ async function init() {
 }
 
 init();
-
-// animate the planet svg to make it look like it's rotating. use the planets rotation time to determine the speed of the rotation too.
 
 // make the planets sizes always relative to each other. so in css set their starting sizes like width: 240px etc and then calculate the size so it can scale down as needed but retain it's relative size to other planets.
