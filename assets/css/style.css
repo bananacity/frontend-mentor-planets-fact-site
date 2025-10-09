@@ -235,7 +235,8 @@ body:has(.header.open) {
   transition: opacity 0.3s ease;
 }
 
-.hamburger:hover {
+.hamburger:hover,
+.header.open .hamburger:hover {
   opacity: 0.75;
 }
 
@@ -338,12 +339,12 @@ body:has(.header.open) {
   background: none;
   text-transform: uppercase;
   height: 3.125rem;
-  opacity: 0.5;
+  opacity: 0.75;
   transition: all 0.3s;
 }
 
 .tab-mobile:hover {
-  opacity: 0.75;
+  opacity: 1;
 }
 
 .tab-mobile.active {
@@ -846,6 +847,10 @@ body:has(.header.open) {
 
   .planet-visual {
     height: 20rem;
+  }
+
+  .geology-image {
+    bottom: -7rem;
   }
 
   .planet-info {
