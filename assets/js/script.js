@@ -15,6 +15,9 @@ const planetDescription = document.querySelector('.planet-description');
 const sourceLink = document.querySelector('.source-link');
 const statValues = document.querySelectorAll('.stat-value');
 const tabs = document.querySelectorAll('.tab');
+const tabsMobile = document.querySelectorAll('.tab-mobile');
+const tabMobileIndicator = document.querySelector('.tab-mobile-indicator');
+const tabsMobileList = document.querySelector('.tabs-list-mobile');
 
 const BASE_PATH = '/frontend-mentor-planets-fact-site/';
 
@@ -175,6 +178,7 @@ function updateStatValues(statValues, values) {
 
 function updateActiveTab(view) {
   tabs.forEach((tab) => tab.classList.remove('active'));
+  tabsMobile.forEach((tab) => tab.classList.remove('active'));
 
   let activeIndex;
   switch (view) {
@@ -189,6 +193,9 @@ function updateActiveTab(view) {
   }
 
   tabs[activeIndex].classList.add('active');
+  tabsMobile[activeIndex].classList.add('active');
+
+  updateMobileTabIndicator(tabsMobile[activeIndex]);
 }
 
 function updateActiveNavItem(planetName) {
@@ -214,6 +221,22 @@ function updateActiveNavItem(planetName) {
     activeMobileLink.classList.add('active');
     updateNavIndicator(activeLink);
   }
+}
+
+function updateMobileTabIndicator(activeTab) {
+  if (!activeTab) return;
+
+  const activeTabText = activeTab.querySelector('span');
+
+  const containerRect = tabsMobileList.getBoundingClientRect();
+  const textRect = activeTabText.getBoundingClientRect();
+
+  const indicatorWidth = textRect.width;
+
+  const indicatorPosition = textRect.left - containerRect.left;
+
+  tabMobileIndicator.style.width = `${indicatorWidth}px`;
+  tabMobileIndicator.style.transform = `translateX(${indicatorPosition}px)`;
 }
 
 function updateNavIndicator(activeItem) {
@@ -278,8 +301,11 @@ function handleNavigation(e) {
 }
 
 function handleTabClick(e) {
-  const tab = e.target;
-  const tabIndex = Array.from(tabs).indexOf(tab);
+  const tab = e.currentTarget;
+  let tabIndex = Array.from(tabs).indexOf(tab);
+  if (tabIndex === -1) {
+    tabIndex = Array.from(tabsMobile).indexOf(tab);
+  }
 
   let view;
   let hash;
@@ -372,6 +398,7 @@ async function init() {
     navList.addEventListener('click', handleNavigation);
     navMobileList.addEventListener('click', handleNavigation);
     tabs.forEach((tab) => tab.addEventListener('click', handleTabClick));
+    tabsMobile.forEach((tab) => tab.addEventListener('click', handleTabClick));
 
     const planetName = getPlanetFromURL();
     const view = getViewFromURL();
