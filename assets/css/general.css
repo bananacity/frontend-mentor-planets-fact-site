@@ -214,6 +214,7 @@ body {
 
 @media (max-width: 38.75) {
   :root {
+    --text-stat-label-size: 0.85rem;
   }
 }
 
