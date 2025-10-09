@@ -208,8 +208,12 @@ body {
     --text-stat-label-letter-spacing: 0.73px;
     --text-stat-label-line-height: 16px;
 
-    --text-body-size: 0.75rem;
     --text-body-line-height: 22px;
+  }
+}
+
+@media (max-width: 38.75) {
+  :root {
   }
 }
 
